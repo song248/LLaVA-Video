@@ -1,0 +1,52 @@
+[
+  {
+    "video_path": "data/normal/video_normal_002.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "No"
+  },
+  {
+    "video_path": "data/normal/video_normal_001.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "No"
+  },
+  {
+    "video_path": "data/normal/video_normal_005.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "No"
+  },
+  {
+    "video_path": "data/normal/video_normal_004.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "No"
+  },
+  {
+    "video_path": "data/normal/video_normal_003.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "No"
+  },
+  {
+    "video_path": "data/violence/video_violence_003.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "Yes"
+  },
+  {
+    "video_path": "data/violence/video_violence_001.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "Yes"
+  },
+  {
+    "video_path": "data/violence/video_violence_015.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "Yes"
+  },
+  {
+    "video_path": "data/violence/video_violence_016.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "Yes"
+  },
+  {
+    "video_path": "data/violence/video_violence_002.mp4",
+    "question": "Did this video contain any physical altercations or violent incidents between people, such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?",
+    "answer": "Yes"
+  }
+]
