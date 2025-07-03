@@ -1,0 +1,11 @@
+datasets:
+  violence_detection:
+    data_type: video
+    data_path: train_data.jsonl
+    video_folder: data
+    modalities: ["video"]
+    conversations:
+      - role: user
+        prompt: "{question}"
+      - role: assistant
+        prompt: "{answer}"
