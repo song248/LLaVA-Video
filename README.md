@@ -12,6 +12,21 @@
 
 The LLaVA-Video models are 7/72B parameter models trained on [LLaVA-Video-178K](https://huggingface.co/datasets/lmms-lab/LLaVA-Video-178K) and [LLaVA-OneVision Dataset](https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data), based on Qwen2 language model with a context window of 32K tokens.
 
+## Train
+'''
+pip install ninja packaging
+pip install flash-attn --no-build-isolation
+'''
+
+
+'''
+python llava/train/train.py \
+  --data_path custom_exp.yaml \
+  --video_folder data \
+  --output_dir ./output_llava_video \
+  --num_train_epochs 2 \
+  --per_device_train_batch_size 1
+'''
 
 ## Inference
 

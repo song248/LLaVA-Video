@@ -1,11 +1,10 @@
-datasets:
-  violence_detection:
+train_data:
+  - json_path: ./train_data.jsonl
     data_type: video
-    data_path: train_data.jsonl
+    conversation_template: qwen_1_5
     video_folder: data
-    modalities: ["video"]
-    conversations:
-      - role: user
-        prompt: "{question}"
-      - role: assistant
-        prompt: "{answer}"
+    num_frames: 64
+    sample_strategy: uniform
+    image_token_index: 0
+    use_image_start_end: false
+    add_time_instruction: true
