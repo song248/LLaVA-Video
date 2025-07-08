@@ -26,12 +26,13 @@ echo "PREV_STAGE_CHECKPOINT: ${PREV_STAGE_CHECKPOINT}"
 
 deepspeed --master_port 30000 \
     llava/train/train_mem.py \
+    --deepspeed scripts/zero3.json \
     --model_name_or_path $PREV_STAGE_CHECKPOINT \
     --version qwen_1_5 \
     --data_path $DATA_YAML \
     --video_folder $VIDEO_FOLDER \
-    --mm_tunable_parts="mm_mlp_adapter,mm_language_model" \
-    --mm_vision_tower_lr=2e-6 \
+    --mm_tunable_parts="mm_vision_encoder,mm_mlp_adapter,mm_language_model" \
+    --mm_vision_tower_lr=2e-5 \
     --vision_tower ${VISION_MODEL_VERSION} \
     --mm_projector_type mlp2x_gelu \
     --mm_vision_select_layer -2 \
@@ -66,7 +67,7 @@ deepspeed --master_port 30000 \
     --torch_compile False \
     --torch_compile_backend "inductor" \
     --dataloader_drop_last True \
-    --frames_upbound 4 \
+    --frames_upbound 16 \
     --mm_newline_position grid \
     --add_time_instruction True \
     --force_sample True \

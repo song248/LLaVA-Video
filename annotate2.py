@@ -6,19 +6,23 @@ with open("labeled.json", "r") as f:
 converted = []
 
 for item in data:
-    question = item["question"]
-    answer = item["answer"]
     video_path = item["video_path"]
 
-    # "data/" prefix 제거
+    # 기존처럼 "data/" prefix 제거
     if video_path.startswith("data/"):
         video_path = video_path[len("data/"):]
 
     converted.append({
         "video": video_path,
         "conversations": [
-            {"from": "human", "value": question},
-            {"from": "gpt", "value": answer}
+            {
+                "from": "human",
+                "value": 'Is there any violence between people in this video? Answer "Yes" or "No" only.'
+            },
+            {
+                "from": "gpt",
+                "value": item["answer"]
+            }
         ]
     })
 
