@@ -26,7 +26,6 @@ echo "PREV_STAGE_CHECKPOINT: ${PREV_STAGE_CHECKPOINT}"
 
 deepspeed --master_port 30000 \
     llava/train/train_mem.py \
-    --deepspeed scripts/zero3.json \
     --model_name_or_path $PREV_STAGE_CHECKPOINT \
     --version qwen_1_5 \
     --data_path $DATA_YAML \
@@ -46,17 +45,17 @@ deepspeed --master_port 30000 \
     --fp16 False\
     --run_name $RUN_NAME \
     --output_dir ./work_dirs/$RUN_NAME \
-    --num_train_epochs 3 \
+    --num_train_epochs 2 \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 4 \
     --gradient_accumulation_steps 2 \
     --save_strategy "steps" \
     --save_steps 500 \
     --save_total_limit 1 \
-    --learning_rate 1e-4 \
-    --weight_decay 0. \
-    --warmup_ratio 0.03 \
-    --lr_scheduler_type "cosine" \
+    --learning_rate 2e-6 \
+    --weight_decay 0.01 \
+    --warmup_ratio 0.1 \
+    --lr_scheduler_type "linear" \
     --logging_steps 1 \
     --tf32 True \
     --model_max_length 1024 \
@@ -67,14 +66,14 @@ deepspeed --master_port 30000 \
     --torch_compile False \
     --torch_compile_backend "inductor" \
     --dataloader_drop_last True \
-    --frames_upbound 16 \
+    --frames_upbound 128 \
     --mm_newline_position grid \
     --add_time_instruction True \
     --force_sample True \
     --mm_spatial_pool_stride 2 \
     --lora_enable True \
-    --lora_r 2 \
-    --lora_alpha 8 \
+    --lora_r 8 \
+    --lora_alpha 16 \
     --lora_dropout 0.05 \
     --lora_bias "none"
 exit 0;
