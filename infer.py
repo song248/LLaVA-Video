@@ -9,12 +9,13 @@ import torchvision.transforms as T
 
 # ─────────────────────────────────────────────
 # 설정
-video_path = "infer.mp4"
+video_path = "infer2.mp4"
 adapter_path = "./work_dirs/llava-lora-fight-vqa-google_siglip-so400m-patch14-384-Qwen_Qwen1.5-1.8B"
+# "llava-lora-fight-vqa-google_siglip-so400m-patch14-384-Qwen_Qwen1.5-1.8B"
 base_model = "Qwen/Qwen1.5-1.8B"
 vision_tower = "google/siglip-so400m-patch14-384"
 device = "cuda" if torch.cuda.is_available() else "cpu"
-question = ('Just answer "Yes" or "No". Did this video show any physical violence between people?')
+question = ('Did this video show any physical violence between people?')
 # question = (
 #     "Did this video contain any physical altercations or violent incidents between people, "
 #     "such as punching, pushing, kicking, threatening gestures, or any other aggressive or hostile behavior?"
@@ -77,7 +78,8 @@ with torch.no_grad():
         input_ids=inputs.input_ids,
         attention_mask=inputs.attention_mask,
         max_new_tokens=50,
-        do_sample=False
+        do_sample=False,
+        eos_token_id=tokenizer.eos_token_id 
     )
 
 response = tokenizer.decode(output_ids[0], skip_special_tokens=True)
